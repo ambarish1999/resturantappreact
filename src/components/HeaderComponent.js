@@ -20,7 +20,7 @@ class Header extends Component {
     this.toggleModal();
     alert("Username: " + this.username.value + " Password: " + this.password.value
         + " Remember: " + this.remember.checked);
-    event.preventDefault();
+    event.preventDefault();  
 
   }
 
