@@ -21,8 +21,11 @@ class CommentForm extends Component{
     }
     handleSubmit(values){
         this.toggleModal();
-        console.log("Current State is "+JSON.stringify(values));
-        alert("Current State is "+ JSON.stringify(values));
+        // console.log("Current State is "+JSON.stringify(values));
+        // 
+        //alert(this.props.dishId, values.rating , values.comment);
+        //alert("Current State is "+ JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating , values.author, values.comment);
     }
 
     render(){
@@ -46,7 +49,7 @@ class CommentForm extends Component{
                                 {/* md=2 means no of columns we wish to span for medium devices 
                                 xs={number} is “the number of columns you wish to span for Extra small devices Phones */}
                                 <Col md={10}>
-                                    <Control.select model=".ratingstars" id="ratingstars" name="ratingstars" 
+                                    <Control.select model=".rating" name="rating" 
                                         className="form-control">
                                         <option>5</option>
                                         <option>4</option>
@@ -58,13 +61,13 @@ class CommentForm extends Component{
                             </Row>
 
                             <Row className="form-group">
-                                <Label htmlFor="authorname" md={4}>Your Name</Label>
+                                <Label htmlFor="author" md={4}>Your Name</Label>
                                 <Col md={10}>
-                                    <Control.text model=".authorname" id="authorname" name="authorname" placeholder="Your Name"
+                                    <Control.text model=".author" id="author" name="author" placeholder="Your Name"
                                     className="form-control" validators={{required, minLength:minLength(3), maxLength:maxLength(15)
                                     }}/>
                                     <Errors className="text-danger"
-                                            model=".authorname"
+                                            model=".author"
                                             show="touched"
                                             messages={{
                                                 required:"Required ",
@@ -76,13 +79,13 @@ class CommentForm extends Component{
                             </Row>
 
                             <Row className="form-group">
-                                <Label htmlFor="message" md={8}>Your Feedback</Label>
+                                <Label htmlFor="comment" md={8}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".message" id="message" name="message"
+                                    <Control.textarea model=".comment" id="comment" name="comment"
                                         rows="6"
                                         className="form-control" validators={{required}} />
                                     <Errors className="text-danger"
-                                            model=".message"
+                                            model=".comment"
                                             show="touched"
                                             messages={{
                                                 required:"Required "
