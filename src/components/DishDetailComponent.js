@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CommentForm from './CommentFormComponent';
 import { Loading } from './LoadingComponent';
 import {baseUrl} from '../shared/baseUrl';
-    function RenderComments({comments, addComment, dishId}){
+    function RenderComments({comments, postComment, dishId}){
         if(comments!=null){
             const comments1=comments.map((comment)=>{
                 var tempdate= new Date(comment.date);
@@ -25,7 +25,7 @@ import {baseUrl} from '../shared/baseUrl';
                             Comments
                         </CardTitle>
                         {comments1}
-                        <CommentForm dishId={dishId} addComment={addComment} />
+                        <CommentForm dishId={dishId} postComment={postComment} />
                     </CardBody>
                 </Card>
             );
@@ -96,7 +96,7 @@ import {baseUrl} from '../shared/baseUrl';
                         </div>
 
                         <div className="col-12 col-md-5 m-1">
-                            < RenderComments comments={props.comments} addComment={props.addComment}
+                            < RenderComments comments={props.comments} postComment={props.postComment}
                                 dishId={props.dish.id} 
                             />
                         </div>
