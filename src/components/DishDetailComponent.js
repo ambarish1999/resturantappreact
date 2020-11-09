@@ -3,6 +3,7 @@ import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb , BreadcrumbIt
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentFormComponent';
 import { Loading } from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
     function RenderComments({comments, addComment, dishId}){
         if(comments!=null){
             const comments1=comments.map((comment)=>{
@@ -39,7 +40,7 @@ import { Loading } from './LoadingComponent';
         if(dish!=null){
             return (
                 <Card>
-                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardImg top src={baseUrl+ dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>
                             {dish.name}
